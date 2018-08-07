@@ -89,7 +89,7 @@
                                     <outlet property="nameLabel" destination="ipg-h5-4Ac" id="FWN-w3-lg9"/>
                                     <outlet property="serialNumberLabel" destination="2OP-3U-X3J" id="taq-BX-MhB"/>
                                     <outlet property="valueLabel" destination="pTU-Q6-XuE" id="gbh-hY-B1Y"/>
-                                    <segue destination="dOj-wg-dgg" kind="show" id="QaR-NN-Njg"/>
+                                    <segue destination="dOj-wg-dgg" kind="show" identifier="showItem" id="QaR-NN-Njg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -187,6 +187,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NhB-wT-18o"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="e3J-Sg-FXY" id="qe1-CJ-oSh"/>
+                        <outlet property="nameField" destination="hb0-f4-2RN" id="7ku-Er-4eX"/>
+                        <outlet property="serialNumberField" destination="Tbk-wx-XEl" id="GGU-My-4KW"/>
+                        <outlet property="valueField" destination="8Aw-jI-5tS" id="eSn-in-RkP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jba-8N-Qdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
