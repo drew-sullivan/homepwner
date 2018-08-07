@@ -18,8 +18,12 @@ class DetailViewController : UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    
-    var item: Item! //Reference to the item that was clicked from the stack view
+     //Reference to the item that was clicked from the stack view
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
