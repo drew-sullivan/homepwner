@@ -89,8 +89,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UIy-cg-D3i">
-                                <rect key="frame" x="8" y="96" width="359" height="674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UIy-cg-D3i">
+                                <rect key="frame" x="8" y="61" width="359" height="726"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qmh-yF-5zK">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
@@ -153,16 +153,36 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3J-Sg-FXY">
-                                        <rect key="frame" x="0.0" y="114" width="359" height="560"/>
+                                        <rect key="frame" x="0.0" y="114" width="359" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXR-1g-Sm7">
+                                        <rect key="frame" x="0.0" y="142.33333333333331" width="359" height="531.66666666666674"/>
+                                    </imageView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ax-g6-Mtg">
+                                        <rect key="frame" x="0.0" y="682" width="359" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="GPV-xf-VyP"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem systemItem="camera" id="Uf7-47-Jhw">
+                                                <connections>
+                                                    <action selector="takePicture:" destination="dOj-wg-dgg" id="mhT-fA-IrN"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Tbk-wx-XEl" firstAttribute="leading" secondItem="8Aw-jI-5tS" secondAttribute="leading" id="94b-PP-gmV"/>
                                     <constraint firstItem="hb0-f4-2RN" firstAttribute="leading" secondItem="Tbk-wx-XEl" secondAttribute="leading" id="H6s-Lt-a5Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="1ax-g6-Mtg" secondAttribute="bottom" id="PMm-BC-uIY"/>
+                                    <constraint firstItem="1ax-g6-Mtg" firstAttribute="top" secondItem="lXR-1g-Sm7" secondAttribute="bottom" constant="8" id="g2R-mL-jts"/>
+                                    <constraint firstItem="1ax-g6-Mtg" firstAttribute="leading" secondItem="UIy-cg-D3i" secondAttribute="leading" id="ueo-If-LdY"/>
+                                    <constraint firstAttribute="trailing" secondItem="1ax-g6-Mtg" secondAttribute="trailing" id="va2-ig-w9W"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -171,7 +191,6 @@
                         <constraints>
                             <constraint firstItem="UIy-cg-D3i" firstAttribute="top" secondItem="NhB-wT-18o" secondAttribute="top" constant="8" id="1Xg-ET-toL"/>
                             <constraint firstItem="NhB-wT-18o" firstAttribute="trailing" secondItem="UIy-cg-D3i" secondAttribute="trailing" constant="8" id="ToA-Mc-FF3"/>
-                            <constraint firstItem="NhB-wT-18o" firstAttribute="bottom" secondItem="UIy-cg-D3i" secondAttribute="bottom" constant="8" id="eF3-iI-9Ba"/>
                             <constraint firstItem="UIy-cg-D3i" firstAttribute="leading" secondItem="NhB-wT-18o" secondAttribute="leading" constant="8" id="guF-ih-WWi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NhB-wT-18o"/>
@@ -181,6 +200,7 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="e3J-Sg-FXY" id="qe1-CJ-oSh"/>
+                        <outlet property="imageView" destination="lXR-1g-Sm7" id="gV0-DP-v95"/>
                         <outlet property="nameField" destination="hb0-f4-2RN" id="7ku-Er-4eX"/>
                         <outlet property="serialNumberField" destination="Tbk-wx-XEl" id="GGU-My-4KW"/>
                         <outlet property="valueField" destination="8Aw-jI-5tS" id="eSn-in-RkP"/>
