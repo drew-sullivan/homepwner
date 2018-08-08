@@ -16,6 +16,7 @@
 		3ACAE5A8211538060041A211 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAE5A7211538060041A211 /* ItemsViewController.swift */; };
 		3ACAE5AA2115382F0041A211 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAE5A92115382F0041A211 /* Item.swift */; };
 		3ACAE5AC2115398C0041A211 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAE5AB2115398C0041A211 /* ItemStore.swift */; };
+		3AFC6B7D211A755200122499 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC6B7C211A755200122499 /* ImageStore.swift */; };
 		7CDA6A1C2118C08F00DA0F0D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA6A1B2118C08F00DA0F0D /* ItemCell.swift */; };
 		7CDA6A202118E18600DA0F0D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA6A1F2118E18600DA0F0D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		3ACAE5A7211538060041A211 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		3ACAE5A92115382F0041A211 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3ACAE5AB2115398C0041A211 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		3AFC6B7C211A755200122499 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		7CDA6A1B2118C08F00DA0F0D /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		7CDA6A1F2118E18600DA0F0D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		3ACAE56D211537D70041A211 = {
 			isa = PBXGroup;
 			children = (
+				3AFC6B7C211A755200122499 /* ImageStore.swift */,
 				7CDA6A1F2118E18600DA0F0D /* DetailViewController.swift */,
 				3ACAE5A7211538060041A211 /* ItemsViewController.swift */,
 				7CDA6A1B2118C08F00DA0F0D /* ItemCell.swift */,
@@ -273,6 +276,7 @@
 				3ACAE5AC2115398C0041A211 /* ItemStore.swift in Sources */,
 				7CDA6A202118E18600DA0F0D /* DetailViewController.swift in Sources */,
 				3ACAE5A8211538060041A211 /* ItemsViewController.swift in Sources */,
+				3AFC6B7D211A755200122499 /* ImageStore.swift in Sources */,
 				7CDA6A1C2118C08F00DA0F0D /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

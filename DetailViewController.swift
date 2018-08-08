@@ -10,11 +10,22 @@ import UIKit
 
 class DetailViewController : UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    // Reference to the item that was clicked from the stack view
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
+    var imageStore: ImageStore!
+    
+    // MARK: - Outlets
     @IBOutlet var nameField: UITextField!
     @IBOutlet var serialNumberField: UITextField!
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    
+    // MARK: - Actions
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         
@@ -31,12 +42,7 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UINavigation
         view.endEditing(true)
     }
     
-     //Reference to the item that was clicked from the stack view
-    var item: Item! {
-        didSet {
-            navigationItem.title = item.name
-        }
-    }
+    // MARK: - Formatters
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -51,12 +57,18 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UINavigation
         return df
     }()
     
+    // MARK: - View Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         nameField.text = item.name
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        let key = item.itemKey
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,6 +87,8 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UINavigation
         }
     }
     
+    
+    // MARK: -
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -82,7 +96,11 @@ class DetailViewController : UIViewController, UITextFieldDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        imageStore.setImage(image, forKey: item.itemKey)
+        
         imageView.image = image
+        
         dismiss(animated: true, completion: nil)
     }
 }
