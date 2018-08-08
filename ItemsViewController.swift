@@ -13,6 +13,7 @@ class ItemsViewController : UITableViewController {
     var itemStore: ItemStore!
     var imageStore: ImageStore!
     
+    //MARK: - Manipulate Data
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem()
         if let index = itemStore.allItems.index(of: newItem) {
@@ -21,6 +22,7 @@ class ItemsViewController : UITableViewController {
         }
     }
     
+    //MARK: - tableView Protocol
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
     }
@@ -32,13 +34,6 @@ class ItemsViewController : UITableViewController {
         cell.serialNumberLabel.text = item.serialNumber
         cell.valueLabel.text = "$\(item.valueInDollars)"
         return cell
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 65
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -67,6 +62,22 @@ class ItemsViewController : UITableViewController {
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
+    
+    //MARK: - Lifecycle Hooks
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
+    }
+    
+    // MARK: -
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showItem":
@@ -79,12 +90,6 @@ class ItemsViewController : UITableViewController {
         default:
             preconditionFailure("Unexpected segue identifier.")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {

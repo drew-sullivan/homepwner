@@ -11,6 +11,8 @@ import UIKit
 class ImageStore {
     let cache = NSCache<NSString, UIImage>()
     
+    
+    // MARK: - Image Manipulateion
     func setImage(_ image: UIImage, forKey key: String) {
         cache.setObject(image, forKey: key as NSString)
     }
@@ -22,4 +24,6 @@ class ImageStore {
     func deleteImage(forKey key: String) {
         cache.removeObject(forKey: key as NSString)
     }
+    
+    
 }
